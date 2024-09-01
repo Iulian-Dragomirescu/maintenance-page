@@ -7,6 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.get("/", (req, res) => {
+  // Retry-After 2 hours
+  res.set("Retry-After", 7200);
   res.status(503).sendFile(__dirname + "/index.html");
 });
 
